@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-from sqlalchemy import false
+# from sqlalchemy import false
 
 # import mimetypes
 # mimetypes.add_type("text/css", ".css", True)
