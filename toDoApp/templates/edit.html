@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div id="wrap">
+        <header class="head">
+            <div class="head-box">
+                <img class="banner-img" src="{% static 'images/notion-banner.png' %}" alt="노션">
+            </div>
+        </header>
+        <main class="main">
+            <span class="emoti">👨🏽‍💻</span>
+            
+                <h2 class="main-title">민기의 일정</h2>
+            <div class="main-point">
+                <a href="{% url 'home' %}">
+                    <button>
+                        전체일정<span class="material-icons-outlined">
+                            list
+                            </span>
+                    </button>
+                </a>
+            </div>
+            
+            <div class="list-box">
+                <div class="compo-box">
+                    <div class="sub-box">
+                        <span class=sub-deco></span>
+                        <p class="sub-text">
+                            일정 수정하기
+                        </p>
+                    </div>
+    
+                </div>
+
+                <form action="" method="post">
+                    {% csrf_token %}
+
+
+                    <div class="sub-box data">
+                        <span class=sub-deco></span>
+                            <p class="sub-text data dueday">
+                                <label for="date">마감기한</label>
+                            </p>
+                    </div>
+                        <p class="sub-response title"><input type="date" name="date" id="date" value="{{ post.date }}"></p>  
+                   
+                        <div class="sub-box data">
+                            <span class=sub-deco></span>
+                                <p class="sub-text data dueday">
+                                    <label for="title">일정 제목</label>
+                                </p>
+                                
+                                
+                        </div>
+                            <p class="sub-response title"> <input type="text" name="title" id="title" value="{{ post.title }}"></p>  
+                    
+            
+                            <div class="sub-box data">
+                                <span class=sub-deco></span>
+                                    <p class="sub-text data dueday">
+                                        <label for="content">상세 일정</label>
+                                    </p>
+                                    
+                                    
+                            </div>
+                                <p class="sub-response title"><textarea name="content" id="content" cols="30" rows="10" placeholder="{{ post.content }}"></textarea></p>  
+
+
+                    <button class="btn-color" type="submit">수정하기</button>
+                </form>
+
+            </div>
+
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+
+    
+</body>
+</html>
