@@ -30,28 +30,57 @@ a {
     color: #333333;
 }
 
+body {
+    width: 100%;
+    height: 100%;
+}
 
+#wrap {
+    width: 100%;
+    height: 100%;
+}
 
 .head-box {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start; */
     width: 100%;
-    height: 230px;
+    height: 200px;
     margin: 0 auto;
-    background: #F8F5F0;
+    background: url('../images/background.jpeg') no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding-top: 40px;
+    box-sizing: border-box;
 }
 
 
 .banner-img {
     display: block;
-    max-width: 100%;
+    max-width: 390px;
     height: 100%;
     margin: 0 auto;
+    top: 0;
+    left: 0;
 }
 
+
+.head-title {
+    max-width: 375px;
+    padding: 0 30px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #FBF3DA;
+    margin-bottom: 30px;
+}
 
 .main {
     position: relative;
     max-width: 375px;
     margin: 0 auto;
+    padding: 0 10px;
     padding-top: 70px;
 }
 
@@ -72,20 +101,29 @@ a {
 .main-point {
     width: 100%;
     margin-bottom: 40px;
-    display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
     align-items: center;
     justify-content: right;
 }
 
 .main-point button {
-    display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
     align-items: center;
     justify-content: center;
     background: #F8F5F0;
 }
 
 .btn-color {
-    display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
     align-items: center;
     justify-content: center;
     background: #F8F5F0;
@@ -97,7 +135,10 @@ a {
 }
 
 .sub-box {
-    display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
     align-items: center;
     background: #FBF3DA;
 
@@ -105,11 +146,9 @@ a {
 
 .sub-text {
     position: relative;
-    
     width: 100%;
     font-size: 20px;
     font-weight: bold;
-    
     padding: 10px;
 }
 
@@ -125,18 +164,23 @@ a {
     padding: 10px;
 }
 
+.addition-info {
+    font-size: 13px;
+    color: #444444;
+}
 
 
 .sub-box.data {
-    display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
     align-items: center;
     justify-content: space-between;
     background: #F4EEEE;
 }
 
-.sub-text.data {
-    
-}
+
 
 
 .sub-response.title {
@@ -148,6 +192,10 @@ a {
     padding: 10px 40px;
 }
 
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
 
 .duedate {
     width: 150px;
@@ -165,7 +213,10 @@ a {
 
 
 .btn-color-box {
-    display: flex;
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
     height: 30px;
     align-items: center;
     justify-content: left;
@@ -176,6 +227,143 @@ a {
     margin-right: 10px;
     height: 30px;
 }
+
+
+
+.lib-box {
+    display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+    display: -ms-flexbox;  /* TWEENER - IE 10 */
+    display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+    display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+    flex-wrap: wrap;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    padding: 20px;
+    
+}
+
+
+.name-box {
+    padding: 20px;
+    font-weight: bold;
+}
+
+
+.empty-box {
+    color: #444444;
+}
+
+
+
+
+.popup-section {
+    position: relative;
+    z-index: 9999;
+ }
+ 
+ .popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+ }
+
+ .save-pk {
+     display: none;
+ }
+
+ .popup-close-box {
+     text-align: right;
+ }
+ 
+.popup-close {
+    font-size: 30px;
+}
+
+ .popup:after {
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+    content: '';
+ }
+
+
+ .popup-layer {
+    position: relative;
+    display: inline-block;
+    max-width: 375px;
+    min-width: 280px;
+    padding: 30px 44px 25px;
+    background: #FDFDFD;
+    z-index: 99999999;
+    border-radius: 0.63rem;
+    box-sizing: border-box;
+ }
+ 
+ 
+ .popup-area {
+    position: relative;
+    /* padding: 50px 30px 30px; */
+    text-align: left;
+    margin-bottom: 0.56rem;
+ }
+ 
+ .popup-text {
+    font-size: 20px;
+    line-height: 24px;
+    color: #333333;
+    position: relative;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+ }
+ 
+ .popup-title {
+    font-size: 20px;
+    line-height: 0.72rem;
+    color: #333333;
+ }
+ 
+ 
+ .popup-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    margin: 0 auto;
+ }
+ 
+ .move-btn {
+    width: 95px;
+    font-size: 20px;
+    padding: 10px;
+    border: 0;
+ }
+ 
+ .move-btn.cancel {
+    color: #EC683D;
+ }
+ 
+ .btn-bar {
+    width: 1px;
+    height: 100%;
+    background: #DFDFDF;
+ }
+ 
+ .popup-dimmed {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.3;
+ }
 
 
 
