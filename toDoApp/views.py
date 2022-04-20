@@ -15,7 +15,7 @@ def home(request):
     hana = Post.objects.filter(category="hana")
     science = Post.objects.filter(category="science")
     center = Post.objects.filter(category="center")
-    square = Post.objects.filter(category="squre")
+    square = Post.objects.filter(category="square")
     one = Post.objects.filter(category="one")
     cafe = Post.objects.filter(category="cafe")
     home = Post.objects.filter(category="home")
