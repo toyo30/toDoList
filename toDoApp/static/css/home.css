@@ -94,7 +94,8 @@ body {
 
 
 .main-title {
-    font-size: 40px;
+    font-size: 30px;
+    word-break: keep-all;
     
 }
 
@@ -295,7 +296,7 @@ textarea {
  .popup-layer {
     position: relative;
     display: inline-block;
-    max-width: 375px;
+    max-width: 330px;
     min-width: 280px;
     padding: 30px 44px 25px;
     background: #FDFDFD;
@@ -334,7 +335,7 @@ textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 280px;
+    max-width: 245px;
     margin: 0 auto;
  }
  
