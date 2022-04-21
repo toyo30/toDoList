@@ -14,8 +14,8 @@ class Post(models.Model):
     date_int = models.DateField(default=timezone.now)
     time_start = models.TextField(null='True', default='')
     time_end = models.TextField(null='True', default='')
+    active = models.TextField(null='True', default='')
 
     def __str__(self):
         return self.title
-
 

@@ -21,8 +21,8 @@
         <main class="main">
             <span class="emoti">🦁</span>
     
-                <h2 class="main-title">학습 공지를 확인하고</h2>
-                <h2 class="main-title">함께 공부해보세요!</h2>
+                <h2 class="main-title">🦁LION LIBRARY🦁</h2>
+                <h2 class="main-title">모야모여 ~</h2>
                 <div class="main-point">
                     <a href="{% url 'new' %}">
                         <button>
@@ -38,22 +38,24 @@
                         <div class="sub-box">
                             <span class="sub-deco"></span>
                             <p class="sub-text">
-                                학습공지 확인하기
+                                지금 어디서 공부 중이신가요?
                             </p>
                         </div>
                     </div>
 
                     <div class="sub-box data">
                         <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
                                 <label for="date">하나스퀘어</label>
                                 
-
                             </p>
+                        </a> 
                     </div>
-
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
+                    </div>
                     
-    
                     <div class="lib-box">
                         {% if not categorys.hana %}
                         <a href="{% url 'new' %}">
@@ -61,7 +63,12 @@
                         </a> 
                         {% else %}
                             {% for hana in categorys.hana %}
-                                <div class="name-box" data-target="{{hana.pk}}">{{hana.title}}</div>
+                                <div class="name-box" data-target="{{hana.pk}}">
+                                    {% if hana.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{hana.title}}
+                                </div>
                             {% endfor %}
                         
                         {% endif %}
@@ -70,15 +77,19 @@
 
                     <div class="sub-box data">
                         <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
                                 <label for="date">과학도서관</label>
                                 
 
                             </p>
+                        </a>
                     </div>
 
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
+                    </div>
                     
-    
                     <div class="lib-box">
                         {% if not categorys.science %}
                         <a href="{% url 'new' %}">
@@ -86,20 +97,29 @@
                         </a> 
                         {% else %}
                             {% for science in categorys.science %}
-                                <div class="name-box" data-target="{{science.pk}}">{{science.title}}</div>
+                                <div class="name-box" data-target="{{science.pk}}">
+                                    {% if science.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{science.title}}
+                                </div>
                             {% endfor %}
                         
                         {% endif %}
-                    
                     </div>
+
 
                     <div class="sub-box data">
                         <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
                                 <label for="date">중앙 광장</label>
-                                
-
                             </p>
+                        </a>
+                    </div>
+
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
                     </div>
 
                     <div class="lib-box">
@@ -109,28 +129,43 @@
                         </a> 
                         {% else %}
                             {% for square in categorys.square %}
-                                <div class="name-box" data-target="{{square.pk}}">{{square.title}}</div>
+                                <div class="name-box" data-target="{{square.pk}}">
+                                    {% if square.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{square.title}}
+                                </div>
                             {% endfor %}
                         
                         {% endif %}
-                    
                     </div>
 
                     <div class="sub-box data">
                         <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
                                 <label for="date">중앙 도서관</label>
                             </p>
+                        </a>
+                    </div>
+
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
                     </div>
 
                     <div class="lib-box">
                         {% if not categorys.center %}
                         <a href="{% url 'new' %}">
                             <p class="empty-box">학습을 등록해보세요!</p> 
-                        </a>  
+                        </a> 
                         {% else %}
                             {% for center in categorys.center %}
-                                <div class="name-box" data-target="{{center.pk}}">{{center.title}}</div>
+                                <div class="name-box" data-target="{{center.pk}}">
+                                    {% if center.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{center.title}}
+                                </div>
                             {% endfor %}
                         
                         {% endif %}
@@ -139,9 +174,15 @@
 
                     <div class="sub-box data">
                         <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
                                 <label for="date">백주년 기념관</label>
                             </p>
+                        </a>
+                    </div>
+
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
                     </div>
 
                     <div class="lib-box">
@@ -151,7 +192,12 @@
                         </a> 
                         {% else %}
                             {% for one in categorys.one %}
-                                <div class="name-box" data-target="{{one.pk}}">{{one.title}}</div>
+                                <div class="name-box" data-target="{{one.pk}}">
+                                    {% if one.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{one.title}}
+                                </div>
                             {% endfor %}
                         
                         {% endif %}
@@ -159,10 +205,17 @@
 
                     <div class="sub-box data">
                         <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
                                 <label for="date">집</label>
                             </p>
+                        </a>
                     </div>
+
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
+                    </div>
+
 
                     <div class="lib-box">
                         {% if not categorys.home %}
@@ -171,7 +224,12 @@
                         </a> 
                         {% else %}
                             {% for home in categorys.home %}
-                                <div class="name-box" data-target="{{home.pk}}">{{home.title}}</div>
+                                <div class="name-box" data-target="{{home.pk}}">
+                                    {% if home.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{home.title}}
+                                </div>
                             {% endfor %}
                         
                         {% endif %}
@@ -179,9 +237,15 @@
 
                     <div class="sub-box data">
                         <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
                                 <label for="date">카페</label>
                             </p>
+                        </a>
+                    </div>
+
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
                     </div>
 
                     <div class="lib-box">
@@ -191,69 +255,50 @@
                         </a> 
                         {% else %}
                             {% for cafe in categorys.cafe %}
-                                <div class="name-box" data-target="{{cafe.pk}}">{{cafe.title}}</div>
+                                <div class="name-box" data-target="{{cafe.pk}}">
+                                    {% if cafe.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{cafe.title}}
+                                </div>
                             {% endfor %}
                         
                         {% endif %}
                     </div>
 
-                    {% comment %} <div class="sub-box data">
+
+                    <div class="sub-box data">
                         <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
-                                <label for="date">과학도서관</label>
+                                <label for="date">기타</label>
                             </p>
+                        </a>
+                    </div>
+
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
                     </div>
 
                     <div class="lib-box">
-                        {% if not categorys.science %}
+                        {% if not categorys.etc %}
+                        <a href="{% url 'new' %}">
                             <p class="empty-box">학습을 등록해보세요!</p> 
+                        </a> 
                         {% else %}
-                            {% for science in categorys.science %}
-                                <div class="name-box" data-target="{{science.pk}}">{{science.title}}</div>
+                            {% for etc in categorys.etc %}
+                                <div class="name-box" data-target="{{etc.pk}}">
+                                    {% if etc.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{etc.title}}
+                                </div>
                             {% endfor %}
                         
                         {% endif %}
-                    </div> {% endcomment %}
-
-
-                    {% comment %} <div class="sub-box data">
-                        <span class="sub-deco"></span>
-                            <p class="sub-text data dueday">
-                                <label for="date">집</label>
-                            </p>
                     </div>
 
-                    <div class="lib-box">
-                        {% if not categorys.cafe %}
-                            <p class="empty-box">학습을 등록해보세요!</p> 
-                        {% else %}
-                            {% for cafe in categorys.cafe %}
-                                <div class="name-box" data-target="{{cafe.pk}}">{{cafe.title}}</div>
-                            {% endfor %}
-                        
-                        {% endif %}
-                    </div> {% endcomment %}
-
-                    {% comment %} <div class="sub-box data">
-                        <span class="sub-deco"></span>
-                            <p class="sub-text data dueday">
-                                <label for="date">카페</label>
-                            </p>
-                    </div>
-
-                    <div class="lib-box">
-                        {% if not categorys.cafe %}
-                            <p class="empty-box">학습을 등록해보세요!</p> 
-                        {% else %}
-                            {% for cafe in categorys.cafe %}
-                                <div class="name-box" data-target="{{cafe.pk}}">{{cafe.title}}</div>
-                            {% endfor %}
-                        
-                        {% endif %}
-                    </div> {% endcomment %}
-
-                    
-        
+                
                 </div>
     
             </main>
@@ -297,7 +342,10 @@
 
                                     </div>
                                     <div class="popup-btn">
-                                        <button class="move-btn" type="button" name="button">학습 연장</button>
+                                        {% comment %} <a href="{% url 'edit' post.pk %}">
+                                            <button class="move-btn" type="button" name="button">계획 수정</button>    
+                                        </a> {% endcomment %}
+                                        
                                         <span class="btn-bar"></span>
                                         <button class="move-btn cancel">학습 종료</button>
                                     </div>
@@ -309,98 +357,6 @@
             </div>
     </div>
 
-
-
-
-{% comment %} 
-
-    <div id="wrap">
-        <header class="head">
-            <div class="head-box">
-                <img class="banner-img" src="{% static 'images/background.jpeg' %}" alt="노션">
-                <h2 class="main-title">멋쟁이 사자처럼</h2>
-                <h2 class="main-title">22-1 새벽 열람실 스터디</h2>
-            </div>
-        </header>
-        <main class="main">
-            <span class="emoti">🦁</span>
-
-                <h2 class="main-title">누가누가 공부하나</h2>
-                <h2 class="main-title">혹시 혼자하면 같이할래?</h2>
-            <div class="main-point">
-                <a href="{% url 'new' %}">
-                    <button>
-                        새 일정<span class="material-icons-outlined">
-                            add
-                            </span>
-                    </button>
-                </a>
-            </div>
-            
-            <div class="list-box">
-                <div class="compo-box">
-                    <div class="sub-box">
-                        <span class=sub-deco></span>
-                        <p class="sub-text">
-                            현재 시간
-                        </p>
-                    </div>
-                   
-                    <p class="sub-response today">{{ today }}</p>
-                </div>
-                <ul>
-                    
-                    {% for post in posts %}
-                    <li>
-                        <a href="{% url 'detail' post.pk %}">
-                            <div class="sub-box data">
-                                <span class=sub-deco></span>
-                                <p class="sub-text data dueday">
-                                    {{ post.date }}
-                                </p>
-                                <p class="duedate">D-day : <span class='dday-count'></span>
-                                </p>
-                            </div>
-                            <p class="sub-response title">{{ post.title}}</p>
-
-                            <p class="sub-response content">{{post.content}}</p>
-                            
-                        </a>
-        
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            
-        </main>
-        <footer>
-
-        </footer>
-    </div> {% endcomment %}
-{% comment %} 
-<script>
-    let today = document.querySelector('.today');
-    let dueday = document.querySelectorAll('.dueday')
-
-    toTime = today.innerHTML;
-    toTime = toTime.replaceAll('-', '');
-   
-    dueday.forEach(function(day) {
-        let time = day.innerHTML;
-        // console.log(time);
-        // console.log(toTime);
-        time = time.replaceAll('-', '');
-
-        dday = parseInt(time) - parseInt(toTime);
-    
-
-        day.nextElementSibling.innerHTML = `D-day : <span class='dday-count'>-${dday}</span>`;
-        
-    });
-
-   
-
-</script> {% endcomment %}
 <script>
 function openPopup(){
     $('.popup').fadeIn();
@@ -428,50 +384,51 @@ function calc(str){
     let hour = parseInt(str.substr(0, 2));
     let min = parseInt(str.substr(2, 2));
     let sec = parseInt(str.substr(4, 2));
+
     $(document).find('.left-hour').html(`${hour}`);
     $(document).find('.left-min').html(`${min}`);
     $(document).find('.left-sec').html(`${sec}`);
+
     timerId = setInterval(() =>{
-        sec -= 1
-        if(parseInt(sec)<=0){
-            sec = 59;
-            min -= 1;
-            $(document).find('.left-min').html(`${min}`);
-            $(document).find('.left-sec').html(`${sec}`);
-        };
+        sec -= 1;
+      
+
         if(parseInt(min)<=0){
-            hour -= 1;
+            if(parseInt(hour) != 0){
+                hour -= 1;
+                min = 59;
+            };
             sec = 59;
-            min = 59;
-            $(document).find('.left-hour').html(`${hour}`);
-            $(document).find('.left-min').html(`${min}`);
-            $(document).find('.left-sec').html(`${sec}`);
         };
+
+        if(parseInt(sec)<=0){
+            if(parseInt(min) != 0){
+                min -= 1;
+            };
+            sec = 59;
+        };
+
+        $(document).find('.left-hour').html(`${hour}`);
+        $(document).find('.left-min').html(`${min}`);
         $(document).find('.left-sec').html(`${sec}`);
+        if(parseInt(min)==0 && parseInt(sec)==0 && parseInt(hour)==0){
+            location.reload();
+        };
     }, 1000);
 }
 
 
 
 
-
-
-/*
-$.ajax({
-    url : '{% url 'give' %}',
-    method : "POST",
-}).done(function(result){
-    let result2 = result.posts
-    //var content = `{result.pk}`;
-    console.log(result2);
-    //$(document).find('popup-text').html(html);
-  
-}) */
-
 $(document).on('click', '.name-box', openPopup);
 $(document).on('click', '.name-box', function(event){
     let tarData = $(this).data('target');
     $(document).find('.save-pk').html(`${tarData}`);
+
+    $(document).find('.btn-bar').html(`<a href="/change/${tarData}">
+        <button class="move-btn" type="button" name="button">학습 수정</button>    
+    </a>`);
+
     $.ajax({
         url : '{% url 'give' %}',
         method : "POST",
@@ -482,9 +439,11 @@ $(document).on('click', '.name-box', function(event){
             'X-CSRFTOKEN' : '{{ csrf_token }}'
          },
         success:function(data, posts){
+            
             $(document).find('.popup-text').html(`${data.name}`);
             $(document).find('.popup-content').html(`${data.content}`);
             calc(data.time);
+            
            
         },
         error: function(){
@@ -525,33 +484,6 @@ $(document).on('click', '.move-btn.cancel', function() {
     }
     cancel();
 });
-
-
-$(document).on('click', '.move-btn', function() {
-    let tarData = $('.save-pk').text();
-
-    $.ajax({
-        url : '{% url 'edit' %}',
-        method : "POST",
-        data: {
-            'tarData': tarData
-        },
-        headers: {
-            'X-CSRFTOKEN' : '{{ csrf_token }}'
-            },
-        success:function(data){
-            alert('4시간 연장되었습니다.')
-            location.reload();
-        },
-        error: function(){
-            alert('로딩에 실패했습니다.')
-        }
-        
-    });
-
-
-});
-
 
 
 

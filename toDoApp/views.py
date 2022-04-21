@@ -12,6 +12,20 @@ from django.utils import timezone
 # Create your views here.
 def home(request):
     posts = Post.objects.all()
+    for post in posts:
+        end = post.time_end
+        current = datetime.datetime.now().replace(microsecond=0)
+        current = current.strftime("%Y-%m-%d %H:%M:%S")
+        end = end.replace(' ', '')
+        end = end.replace(':', '')
+        end = end.replace('-', '')
+        current = current.replace(' ', '')
+        current = current.replace(':', '')
+        current = current.replace('-', '')
+        if int(end) <= int(current):
+            post.delete()
+
+
     hana = Post.objects.filter(category="hana")
     science = Post.objects.filter(category="science")
     center = Post.objects.filter(category="center")
@@ -32,26 +46,6 @@ def home(request):
         'etc':etc,
     }
 
-    
-    """ post = Post.objects.get(pk=2)    
-    end = post.time_end
-    
-    current = datetime.datetime.now().replace(microsecond=0)
-    format_date = current.strftime("%Y-%m-%d %H:%M:%S")
-    end = end.replace(' ', '')
-    end = end.replace(':', '')
-    end = end.replace('-', '')
-    format_date = format_date.replace(' ', '')
-    format_date = format_date.replace(':', '')
-    format_date = format_date.replace('-', '')
-    result = int(end) - int(format_date)
-    print(str(result).zfill(6))
-    print(int(end)-int(format_date))
-
-    
-    pdb.set_trace() """
-    
-
     return render(request, 'home.html', {
         'posts': posts,
         'categorys': category,
@@ -60,18 +54,22 @@ def home(request):
 
 
 def new(request):
-
-    start_time = datetime.datetime.now().replace(microsecond=0)
-    end_time = start_time + datetime.timedelta(hours=4)
-
     if request.method == 'POST':
+        
+        start_time = datetime.datetime.now().replace(microsecond=0)
+        date = request.POST['date']
+        date = int(date)
+        end_time = start_time + datetime.timedelta(hours=1)
+
+    
         Post.objects.create(
             title = request.POST['title'],
             category = request.POST['category'],
             content = request.POST['content'],
-            date = request.POST['date'],
+            date = date,
             time_start = start_time,
             time_end = end_time,
+            active = request.POST['with'],
         )
         return redirect('home')
     return render(request, 'new.html')
@@ -83,17 +81,28 @@ def new(request):
 #     return render(request, 'detail.html', {'post': post})
 
 
-# def edit(request, post_pk):
-#     post = Post.objects.get(pk=post_pk)
+def change(request, post_pk):
+    post = Post.objects.get(pk=post_pk)
 
-#     if request.method == 'POST':
-#         Post.objects.filter(pk=post_pk).update(
-#             title = request.POST['title'],
-#             content = request.POST['content'],
-#         )
-#         return redirect('detail', post_pk)
+  
+
+    if request.method == 'POST':
+        start_time = datetime.datetime.now().replace(microsecond=0)
+        date = request.POST['date']
+        date = int(date)
+        end_time = start_time + datetime.timedelta(hours=date)
+        Post.objects.filter(pk=post_pk).update(
+            title = request.POST['title'],
+            category = request.POST['category'],
+            content = request.POST['content'],
+            date = date,
+            time_start = start_time,
+            time_end = end_time,
+            active = request.POST['with'],
+        )
+        return redirect('home')
     
-#     return render(request, 'edit.html', {'post': post})
+    return render(request, 'change.html', {'post': post})
 
 
 # def delete(request, post_pk):
@@ -110,43 +119,44 @@ def new(request):
 def give(request):
     if request.method == 'POST':
     
-        
-        
-        # data = json.loads(request.body)
-        # print(data)
-        # context = {
-        #     'post':post,
-        # }
-        # print(context)
         post_pk = request.POST.get('tarData')  
-        # p = get_object_or_404(Post, pk=post_pk)  
-        # post = Post.objects.get(pk=post_pk)
         post = Post.objects.all()
-        # post = Post.objects.get(pk=post_pk)
-        # serialized_qs = serializers.serialize('json', post)
 
         name = Post.objects.get(pk=post_pk)
         content = name.content
         
-  
         end = name.time_end
         
         current = datetime.datetime.now().replace(microsecond=0)
         format_date = current.strftime("%Y-%m-%d %H:%M:%S")
-        # format_date = format_date.replaceAll("[^0-9]","*")
+    
+
         end = end.replace(' ', '')
         end = end.replace(':', '')
         end = end.replace('-', '')
         format_date = format_date.replace(' ', '')
         format_date = format_date.replace(':', '')
         format_date = format_date.replace('-', '')
+
+        end_hour = end[-6:-4]
+        for_hour = format_date[-6:-4]
+        
+        end_min = end[-4:-2]
+        for_min = format_date[-4:-2]
+
+        end_sec = end[-4:-2]
+        for_sec = format_date[-4:-2]
+
         hour = int(end[-6:-4]) - int(format_date[-6:-4])
+        hour = int(end[-6:-4]) - int(format_date[-6:-4])
+        if int(end[6:8]) > int(format_date[6:8]):
+            hour += 24
         min = int(end[-4:-2]) - int(format_date[-4:-2])
         if min < 0:
             hour -= 1
             min += 60
 
-        sec = int(end[-4:-2]) - int(format_date[-4:-2])
+        sec = int(end[-2:]) - int(format_date[-2:])
         if sec < 0:
             min -= 1
             sec += 60
@@ -163,7 +173,6 @@ def give(request):
         return JsonResponse(context)
     return render(request, 'home.html')
     
-    # return JsonResponse("aa")
 
 
     # def detail(request, post_pk):

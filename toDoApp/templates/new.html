@@ -20,8 +20,8 @@
         <main class="main">
             <span class="emoti">🦁</span>
     
-                <h2 class="main-title">학습 공지를 확인하고</h2>
-                <h2 class="main-title">함께 공부해보세요!</h2>
+                <h2 class="main-title">🦁STUDY LIKE LION🦁</h2>
+                <h2 class="main-title">모야모여 ~</h2>
                 <div class="main-point">
                     <a href="{% url 'home' %}">
                         <button>
@@ -37,7 +37,7 @@
                         <div class="sub-box">
                             <span class=sub-deco></span>
                             <p class="sub-text">
-                                학습공지 작성하기
+                                학습계획 작성하기
                             </p>
                         </div>
         
@@ -59,8 +59,8 @@
                                 
                             <p class="sub-response title">
                                 <select name="date" id="date" required>
-                                    <option value="null" selected>시간을 선택하세요</option>
-                                    <option value="1">0~1시간</option>
+                                    <option value="" selected>시간을 선택하세요</option>
+                                    <option value="1">1시간 이내</option>
                                     <option value="2">1~2시간</option>
                                     <option value="3">2~3시간</option>
                                     <option value="4">3~4시간</option>
@@ -76,50 +76,58 @@
                                     </p>
                                         
                             </div>
-                                <p class="sub-response title">
-                                    <select name="category" id="category" required>
-                                        <option value="null" selected>공부 장소를 선택하세요</option>
-                                        <option value="hana">하나스퀘어</option>
-                                        <option value="science">과학도서관</option>
-                                        <option value="center">중앙도서관</option>
-                                        <option value="square">중앙광장</option>
-                                        <option value="one">백주년기념관</option>
-                                        <option value="cafe">카페</option>
-                                        <option value="home">집</option>
-                                        <option value="etc">기타</option>
-                                    </select>
-                                </p>  
-                                
-                                    
-                                   
+
+                            <p class="sub-response title">
+                                <select name="category" id="category" required>
+                                    <option value="" selected>공부 장소를 선택하세요</option>
+                                    <option value="hana">하나스퀘어</option>
+                                    <option value="science">과학도서관</option>
+                                    <option value="center">중앙도서관</option>
+                                    <option value="square">중앙광장</option>
+                                    <option value="one">백주년기념관</option>
+                                    <option value="cafe">카페</option>
+                                    <option value="home">집</option>
+                                    <option value="etc">기타</option>
+                                </select>
+                            </p>                                  
+    
+                        
                            
-                            
                             <div class="sub-box data">
                                 <span class=sub-deco></span>
                                     <p class="sub-text data dueday">
                                         <label for="title">이름</label>
                                     </p>
                             </div>
-                                <p class="sub-response title">
-                                    <input type="text" name="title" id="title" placeholder="이름을 입력해주세요." required>
-                                    <span class="addition-info">*이름 혹은 닉네임을 작성해세요!</span>
-                                </p>  
+                            <p class="sub-response title">
+                                <input type="text" name="title" id="title" placeholder="이름을 입력해주세요." required>
+                                <span class="addition-info">*이름 혹은 닉네임을 작성해세요!</span>
+                            </p>  
+                    
+
+                            <div class="sub-box data">
+                                <span class=sub-deco></span>
+                                    <p class="sub-text data dueday">
+                                        <label for="content">More Info</label>
+                                    </p>
+                            </div>
+
+                            <p class="sub-response title">
+                                <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력해주세요."></textarea>
+                                <span class="addition-info">*밥은 언제 먹으러 갈 건지, 열람실 번호를 입력해보세요!</span>
+                                <div class="study-with">
+                                    <input type="radio" id="with" name="with" value="0" checked>
+                                    <label for="with">혼자 공부할래요</label>
+                                </div>
+                                <div class="study-with">
+                                    <input type="radio" id="with" name="with" value="1">
+                                    <label for="with">같이 공부할래요</label>
+                                </div>
+                            </p>  
+
                         
     
-                                <div class="sub-box data">
-                                    <span class=sub-deco></span>
-                                        <p class="sub-text data dueday">
-                                            <label for="content">More Info</label>
-                                        </p>
-                                        
-                                        
-                                </div>
-                                    <p class="sub-response title">
-                                        <textarea name="content" id="content" cols="30" rows="10" placeholder="내용을 입력해주세요."></textarea>
-                                        <span class="addition-info">*밥은 언제 먹으러 갈 건지, 열람실 번호를 입력해보세요!</span>
-                                    </p>  
-    
-                        <button class="btn-color" type="submit">작성하기</button>
+                            <button class="btn-color" type="submit">작성하기</button>
                         
                     </form>
                     

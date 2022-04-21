@@ -23,7 +23,8 @@ urlpatterns = [
     path('new/', views.new, name="new"),
     path('give/', views.give, name="give"),
     # path('detail/<int:post_pk>/', views.detail, name="detail"),
-    path('edit/', views.edit, name="edit"),
+    path('change/<int:post_pk>', views.change, name="change"),
+    # path('edit/', views.edit, name="edit"),
     path('delete/', views.delete, name="delete"),
 ]
 

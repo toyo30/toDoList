@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="head-box">
+                <h2 class="head-title">멋쟁이 사자처럼</h2>
+                <h2 class="head-title">22-1 새벽 열람실 스터디</h2>
+            </div>
+        </header>
+        <main class="main">
+            <span class="emoti">👨🏽‍💻</span>
+            
+            <h2 class="main-title">🦁STUDY LIKE LION🦁</h2>
+            <h2 class="main-title">모야모여 ~</h2>
+            <div class="main-point">
+                <a href="{% url 'home' %}">
+                    <button>
+                        전체공지<span class="material-icons-outlined">
+                            list
+                            </span>
+                    </button>
+                </a>
+            </div>
+            
+            <div class="list-box">
+                <div class="compo-box">
+                    <div class="sub-box">
+                        <span class=sub-deco></span>
+                        <p class="sub-text">
+                            학습계획 수정하기
+                        </p>
+                    </div>
+    
+                </div>
+
+
+                <form action="" method="post">
+                    {% csrf_token %}
+
+
+                    <div class="sub-box data">
+                        <span class=sub-deco></span>
+                            <p class="sub-text data dueday">
+                                <label for="date">계획시간</label>
+                            </p>
+                    </div>
+                    
+                    <p class="sub-response title">
+                        <select name="date" id="date" required>
+                            <option value="" selected>시간을 선택하세요</option>
+                            <option value="1">1시간 이내</option>
+                            <option value="2">1~2시간</option>
+                            <option value="3">2~3시간</option>
+                            <option value="4">3~4시간</option>
+                        </select>
+                        <span class="addition-info">*추가할 시간을 입력해주세요</span>
+                    </p>  
+
+                   
+                    <div class="sub-box data">
+                        <span class=sub-deco></span>
+                        <p class="sub-text data dueday">
+                            <label for="category">장소</label>
+                        </p>          
+                    </div>
+                    
+                    <p class="sub-response title">
+                        <select name="category" id="category" required>
+                            <option value="" selected>공부 장소를 선택하세요</option>
+                            <option value="hana">하나스퀘어</option>
+                            <option value="science">과학도서관</option>
+                            <option value="center">중앙도서관</option>
+                            <option value="square">중앙광장</option>
+                            <option value="one">백주년기념관</option>
+                            <option value="cafe">카페</option>
+                            <option value="home">집</option>
+                            <option value="etc">기타</option>
+                        </select>
+                    </p>  
+                    
+            
+                    <div class="sub-box data">
+                        <span class=sub-deco></span>
+                            <p class="sub-text data dueday">
+                                <label for="title">이름</label>
+                            </p>
+                    </div>
+
+                    <p class="sub-response title">
+                        <input type="text" name="title" id="title" value="{{post.title}}" required>
+                        <span class="addition-info">*이름 혹은 닉네임을 작성해세요!</span>
+                    </p>  
+
+                    <div class="sub-box data">
+                        <span class=sub-deco></span>
+                            <p class="sub-text data dueday">
+                                <label for="content">More Info</label>
+                            </p>
+                    </div>
+
+                    <p class="sub-response title">
+                        <textarea name="content" id="content" cols="30" rows="10">{{post.content}}</textarea>
+                        <span class="addition-info">*밥은 언제 먹으러 갈 건지, 열람실 번호를 입력해보세요!</span>
+                        
+                        <div class="study-with">
+                            <input type="radio" id="with" name="with" value="0" checked>
+                            <label for="with">혼자 공부할래요</label>
+                        </div>
+
+                        <div class="study-with">
+                            <input type="radio" id="with" name="with" value="1">
+                            <label for="with">같이 공부할래요</label>
+                        </div>
+                    </p>  
+
+
+                    <button class="btn-color" type="submit">수정하기</button>
+                </form>
+
+            </div>
+
+        </main>
+        <footer>
+
+        </footer>
+    </div>
+
+    
+</body>
+</html>
