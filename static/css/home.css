@@ -1,6 +1,5 @@
 @charset 'utf-8';
 
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,7 +17,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 }
-
 
 ol, ul, li {
 	list-style: none;
@@ -165,10 +163,21 @@ body {
     padding: 10px;
 }
 
+.study-with {
+    margin: 10px 0;
+}
+
+.study-with label {
+    font-size: 13px;
+    color: #252525;
+}
+
 .addition-info {
     font-size: 13px;
     color: #444444;
 }
+
+
 
 
 .sub-box.data {
@@ -177,7 +186,6 @@ body {
     display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
     display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
     align-items: center;
-    justify-content: space-between;
     background: #F4EEEE;
 }
 
@@ -230,6 +238,17 @@ textarea {
 }
 
 
+.with-box {
+    text-align: right;
+    padding: 5px 20px 0 0;
+}
+
+.with-point.des {
+    font-size: 10px;
+    color: #795e5e;
+}
+
+
 
 .lib-box {
     display: -webkit-box;   /* OLD - iOS 6-, Safari 3.1-6, BB7 */
@@ -253,7 +272,6 @@ textarea {
 .empty-box {
     color: #444444;
 }
-
 
 
 
@@ -365,8 +383,6 @@ textarea {
     background: #000;
     opacity: 0.3;
  }
-
-
 
 footer {
     padding-bottom: 100px;
