@@ -59,7 +59,7 @@ def new(request):
         start_time = datetime.datetime.now().replace(microsecond=0)
         date = request.POST['date']
         date = int(date)
-        end_time = start_time + datetime.timedelta(hours=1)
+        end_time = start_time + datetime.timedelta(hours=date)
 
     
         Post.objects.create(
