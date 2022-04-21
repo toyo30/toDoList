@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="같이 공부하자">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="22-01학기 시험기간 스터디">
-    <meta property="og:description" content="학습 장소를 공유하여 함께 공부해!">
+    <meta property="og:title" content="🦁STUDY LIKE LION🐯">
+    <meta property="og:description" content="🙌같이 공부할 멋사 어디 없나요~??">
     <meta property="og:image" content="http://studylion.pythonanywhere.com/static/images/background.jpeg"/>
     <meta property="og:image:width" content="640" />
     <meta property="og:image:height" content="360" />
@@ -18,20 +18,28 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SNM6BV4L3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-7SNM6BV4L3');
+    </script>
 </head>
 <body>
     <div id="wrap">
         <header>
             <div class="head-box">
                 <h2 class="head-title">멋쟁이 사자처럼</h2>
-                <h2 class="head-title">22-1 새벽 열람실 스터디</h2>
+                <h2 class="head-title">LION LIBRARY</h2>
             </div>
         </header>
         <main class="main">
             <span class="emoti">🦁</span>
     
-                <h2 class="main-title">🦁LION LIBRARY🦁</h2>
-                <h2 class="main-title">모야모여 ~</h2>
+                <h2 class="main-title">🦁STUDY LIKE LION🐯</h2>
                 <div class="main-point">
                     <a href="{% url 'new' %}">
                         <button>
@@ -216,6 +224,37 @@
                         <span class="sub-deco"></span>
                         <a class="sub-box-link" href="{% url 'new' %}">
                             <p class="sub-text data dueday">
+                                <label for="date">기타 교내장소</label>
+                            </p>
+                        </a>
+                    </div>
+
+                    <div class="with-box">
+                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
+                    </div>
+
+                    <div class="lib-box">
+                        {% if not categorys.etc %}
+                        <a href="{% url 'new' %}">
+                            <p class="empty-box">학습을 등록해보세요!</p> 
+                        </a> 
+                        {% else %}
+                            {% for etc in categorys.etc %}
+                                <div class="name-box" data-target="{{etc.pk}}">
+                                    {% if etc.active != "0"  %} 
+                                        <span class="with-point">🏃🏃‍♂️</span>
+                                    {% endif %}
+                                    {{etc.title}}
+                                </div>
+                            {% endfor %}
+                        
+                        {% endif %}
+                    </div>
+
+                    <div class="sub-box data">
+                        <span class="sub-deco"></span>
+                        <a class="sub-box-link" href="{% url 'new' %}">
+                            <p class="sub-text data dueday">
                                 <label for="date">집</label>
                             </p>
                         </a>
@@ -276,36 +315,7 @@
                     </div>
 
 
-                    <div class="sub-box data">
-                        <span class="sub-deco"></span>
-                        <a class="sub-box-link" href="{% url 'new' %}">
-                            <p class="sub-text data dueday">
-                                <label for="date">기타</label>
-                            </p>
-                        </a>
-                    </div>
-
-                    <div class="with-box">
-                        <span class="with-point des">🏃🏃‍♂️ 같이 공부할래요!</span>
-                    </div>
-
-                    <div class="lib-box">
-                        {% if not categorys.etc %}
-                        <a href="{% url 'new' %}">
-                            <p class="empty-box">학습을 등록해보세요!</p> 
-                        </a> 
-                        {% else %}
-                            {% for etc in categorys.etc %}
-                                <div class="name-box" data-target="{{etc.pk}}">
-                                    {% if etc.active != "0"  %} 
-                                        <span class="with-point">🏃🏃‍♂️</span>
-                                    {% endif %}
-                                    {{etc.title}}
-                                </div>
-                            {% endfor %}
-                        
-                        {% endif %}
-                    </div>
+                    
 
                 
                 </div>
